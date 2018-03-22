@@ -1,10 +1,26 @@
 [ 
   {
-    "name" : "Poncho",
-    "hobby" : "Swimming"
+    "name" : "Ponchito",
+    "hobby" : "Swimming",
+    "age" : "16",
+    "phone" : "69696969",
+    "address" : "Plaza del Sol, #hookers-corner",
+    "sex" : "working on it!"
    }, 
    {
-     "name" : "Edgar",
-     "hobby" : "Waifus"
-   }
+     "name" : "Edgar Javier",
+     "hobby" : "Waifus",
+     "age" : "n/a",
+     "phone" : "333333333",
+     "address" : "Waifus Paradise #6969",
+     "sex" : "every friday in the noon"
+   },
+  {
+    "name" : "Hermes 'Memes'",
+    "hobby" : "Typing",
+    "age" : "12",
+    "phone" : "11111111",
+    "address" : "Programming Land #1111",
+    "sex" : "Fuc*** the code!"
+  }
 ]
