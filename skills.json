@@ -71,53 +71,13 @@
         "type": "ongoing",
         "start": 1471717727934,
         "previous": 31536000000,
-        "story": "<p>After experiencing angular,angular2, jquery, lodash &amp; underscore, react , d3.js and many more small libraries, I am in love with js, It's flexibility , power , even with weakneses .</p><p>So, when I have some problems to resolve, I allways try first, to implement efficient,short and readable sollution in vanilla.js. And if I was unable to succeed in short time, only then I am starting to seek other sollutions</p>"
+        "story": "<p>After experiencing vuejs and reactjs, I am in love with js, It's flexibility , power , even with weakneses .</p><p>So, when I have some problems to resolve, I allways try first, to implement efficient, short and readable sollution in vanilla.js. And if I was unable to succeed in short time, only then I am starting to seek other sollutions</p>"
       },
       "progressPercent": 80
     },
     {
       "index": 8,
-      "name": "JQuery",
-      "shortName": "jq",
-      "type": "Technology",
-      "status": "Improving",
-      "experience": {
-        "type": "static",
-        "start": 1471717727934,
-        "previous": 31536000000
-      },
-      "progressPercent": 65
-    },
-    {
-      "index": 9,
-      "name": "Angular.js (1.x)",
-      "type": "Technology",
-      "shortName": "ng1",
-      "status": "Abandoned",
-      "experience": {
-        "type": "static",
-        "start": 1471717727934,
-        "previous": 18748800000
-      },
-      "progressPercent": 50
-    },
-    {
-      "index": 10,
-      "name": "D3.js",
-      "shortName": "D3",
-      "type": "Technology",
-      "status": "RapidlyImproving",
-      "experience": {
-        "type": "ongoing",
-        "start": 1471717727934,
-        "previous": 8035200000,
-        "story": "<p>D3.js shortly became my passion. I enjoy working on it and love flexibility and power, it gives developers</p>"
-      },
-      "progressPercent": 80
-    },
-    {
-      "index": 11,
-      "name": "Oracle (PL SQL)",
+      "name": "SQL",
       "shortName": "PL",
       "type": "Technology",
       "status": "Abandoned",
@@ -125,69 +85,27 @@
         "type": "static",
         "start": 1471717727934,
         "previous": 32140800000,
-        "story": "<p>Worked within bound of some projects, at Bank of Georgia </p>"
+        "story": "<p>Intermediate knowledge in SQL, more develop practive </p>"
       },
-      "progressPercent": 60
+      "progressPercent": 40
     },
     {
-      "index": 12,
-      "name": "MS SQL",
-      "shortName": "MS SQL",
-      "type": "Technology",
-      "status": "Improving",
-      "experience": {
-        "type": "ongoing",
-        "start": 1471717727934,
-        "previous": 32140800000,
-        "story": "<p>My experience with ms sql is ongoing, urually I am writing queries for complex reports and using CTE and other advanced stuff's to reach desired result </p>"
-      },
-      "progressPercent": 55
-    },
-    {
-      "index": 13,
-      "name": "MY SQL",
-      "shortName": "MY SQL",
-      "type": "Technology",
-      "status": "Abandoned",
-      "experience": {
-        "type": "static",
-        "start": 1471717727934,
-        "previous": 5356800000,
-        "story": "<p>I was using it for side projects, but then I moved to mongo db, which was better suited for my needs</p>"
-      },
-      "progressPercent": 35
-    },
-    {
-      "index": 14,
+      "index": 9,
       "name": "Mongo db",
       "shortName": "mongo",
       "type": "Technology",
       "status": "Improving",
       "experience": {
-        "type": "static",
-        "start": 1471717727934,
-        "previous": 2678400000,
-        "story": "I am using mongo db for side projects (See <b>fb-bot</b> and <b>fb-github-trends</b> repos for a reference)"
-      },
-      "progressPercent": 25
-    },
-    {
-      "index": 15,
-      "name": "Asp.Net MVC (Entity Framework)",
-      "shortName": "asp",
-      "type": "Technology",
-      "status": "Improving",
-      "experience": {
         "type": "ongoing",
         "start": 1471717727934,
         "previous": 32140800000,
-        "story": "My current primary office job"
+        "story": "<p>My experience with mongodb is ongoing, I am writing most of my apps using MongoDB </p>"
       },
       "progressPercent": 60
     },
     {
-      "index": 16,
-      "name": "Java (Hibernate)",
+      "index": 10,
+      "name": "Java ",
       "shortName": "java",
       "type": "Technology",
       "status": "Abandoned",
@@ -195,58 +113,17 @@
         "type": "static",
         "start": 1471717727934,
         "previous": 2678400000,
-        "story": "I am familiar with syntax, have written 1-2 small mobile app for own use "
+        "story": "I am familiar with syntax, have written for 2 years for local and mobile app for own use "
       },
-      "progressPercent": 30
+      "progressPercent": 70
     },
     {
-      "index": 16,
-      "name": "Java (Hibernate)",
-      "shortName": "java",
-      "type": "Technology",
-      "status": "Abandoned",
-      "experience": {
-        "type": "static",
-        "start": 1471717727934,
-        "previous": 2678400000,
-        "story": "I am familiar with syntax, have written 1-2 small mobile app for own use "
-      },
-      "progressPercent": 30
-    },
-    {
-      "index": 17,
-      "name": "PHP",
-      "shortName": "php",
-      "type": "Technology",
-      "status": "Abandoned",
-      "experience": {
-        "type": "static",
-        "start": 1471717727934,
-        "previous": 2678400000
-      },
-      "progressPercent": 20
-    },
-    {
-      "index": 19,
+      "index": 11,
       "name": "Other",
       "type": "Category"
     },
     {
-      "index": 20,
-      "name": "Regular Expressions",
-      "shortName": "regex",
-      "type": "Technology",
-      "status": "Improving",
-      "experience": {
-        "type": "static",
-        "start": 1471717727934,
-        "previous": 2678400000,
-        "story": "I just know this tech "
-      },
-      "progressPercent": 60
-    },
-    {
-      "index": 21,
+      "index": 12,
       "name": "Android (java)",
       "shortName": "android",
       "type": "Technology",
@@ -259,33 +136,7 @@
       "progressPercent": 25
     },
     {
-      "index": 22,
-      "name": "Ios (Appcelerator)",
-      "shortName": "appc",
-      "type": "Technology",
-      "status": "Abandoned",
-      "experience": {
-        "type": "static",
-        "start": 1471717727934,
-        "previous": 10713600000
-      },
-      "progressPercent": 20
-    },
-    {
-      "index": 23,
-      "name": "Ios (swift, objective c)",
-      "type": "Technology",
-      "shortName": "swift",
-      "status": "Planned",
-      "experience": {
-        "type": "static",
-        "start": 1471717727934,
-        "previous": 2678400000
-      },
-      "progressPercent": 15
-    },
-    {
-      "index": 24,
+      "index": 13,
       "name": "Express.js",
       "type": "Technology",
       "status": "Planned",
@@ -297,7 +148,7 @@
       "progressPercent": 20
     },
     {
-      "index": 25,
+      "index": 14,
       "name": "React.js",
       "shortName": "react",
       "type": "Technology",
@@ -308,10 +159,10 @@
         "previous": 8035200000,
         "story": "I have played with it severall times, current web app is written in React :) "
       },
-      "progressPercent": 30
+      "progressPercent": 45
     },
     {
-      "index": 26,
+      "index": 15,
       "name": "Markdown",
       "shortName": "md",
       "type": "Technology",
@@ -324,7 +175,7 @@
       "progressPercent": 80
     },
     {
-      "index": 27,
+      "index": 16,
       "name": "Git",
       "shortName": "git",
       "type": "Technology",
@@ -333,22 +184,48 @@
         "type": "ongoing",
         "start": 1471717727934,
         "previous": 16070400000,
-        "story": "I am heavily using it for bot, office job and for side projects"
+        "story": "I am heavily using git for office job and for school side projects"
       },
-      "progressPercent": 20
+      "progressPercent": 80
     },
     {
-      "index": 28,
-      "name": "Ionic 2",
-      "shortName": "ion",
+      "index": 17,
+      "name": "MaterializeCSS",
+      "shortName": "Materialize",
       "type": "Technology",
       "status": "Improving",
       "experience": {
-        "type": "ongoing",
+        "type": "static",
         "start": 1471717727934,
-        "previous": 5356800000
+        "previous": 31536000000
       },
-      "progressPercent": 25
+      "progressPercent": 60
+    },
+    {
+      "index": 18,
+      "name": "Vuejs",
+      "shortName": "vue",
+      "type": "Technology",
+      "status": "Improving",
+      "experience": {
+        "type": "static",
+        "start": 1471717727934,
+        "previous": 31536000000
+      },
+      "progressPercent": 75
+    },
+    {
+      "index": 19,
+      "name": "Bulma CSS",
+      "shortName": "bulma",
+      "type": "Technology",
+      "status": "Improving",
+      "experience": {
+        "type": "static",
+        "start": 1471717727934,
+        "previous": 31536000000
+      },
+      "progressPercent": 60
     }
   ],
   "links": [
@@ -369,84 +246,48 @@
       "target": 7
     },
     {
-      "source": 0,
+      "source": 2,
       "target": 8
     },
     {
-      "source": 0,
+      "source": 2,
       "target": 9
     },
     {
-      "source": 0,
+      "source": 1,
       "target": 10
     },
     {
-      "source": 2,
-      "target": 11
-    },
-    {
-      "source": 2,
+      "source": 3,
       "target": 12
     },
     {
-      "source": 2,
+      "source": 1,
       "target": 13
     },
     {
-      "source": 2,
+      "source": 0,
       "target": 14
     },
     {
-      "source": 1,
+      "source": 11,
       "target": 15
     },
     {
-      "source": 1,
+      "source": 11,
       "target": 16
     },
     {
-      "source": 1,
+      "source": 0,
       "target": 17
     },
     {
-      "source": 1,
+      "source": 0,
       "target": 18
     },
     {
-      "source": 3,
-      "target": 21
-    },
-    {
-      "source": 3,
-      "target": 22
-    },
-    {
-      "source": 3,
-      "target": 23
-    },
-    {
-      "source": 19,
-      "target": 20
-    },
-    {
-      "source": 1,
-      "target": 24
-    },
-    {
       "source": 0,
-      "target": 25
-    },
-    {
-      "source": 19,
-      "target": 26
-    },
-    {
-      "source": 19,
-      "target": 27
-    },
-    {
-      "source": 3,
-      "target": 28
+      "target": 19
     }
   ]
 }

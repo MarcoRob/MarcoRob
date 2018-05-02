@@ -9,15 +9,6 @@ var Page = React.createClass({
       filters: [{
         name: "all",
         checked: true
-      }, {
-        name: "react.js",
-        checked: false
-      }, {
-        name: "D3.js",
-        checked: false
-      }, {
-        name: "vanilla-js",
-        checked: false
       }],
       setOpacity: false,
       projects: [],
@@ -25,35 +16,11 @@ var Page = React.createClass({
       socialChannels: [{
         name: 'github',
         iconClass: 'github',
-        URL: "https://github.com/bumbeishvili"
-      }, {
-        name: 'free code camp',
-        iconClass: 'fire',
-        URL: "https://freecodecamp.com/bumbeishvili"
-      }, {
-        name: 'codepen',
-        iconClass: 'codepen',
-        URL: "https://codepen.io/bumbeishvili/"
-      }, {
-        name: 'stack-overflow',
-        iconClass: 'stack-overflow',
-        URL: "http://stackoverflow.com/users/5369006/bumbeishvili"
+        URL: "https://github.com/marcorob"
       }, {
         name: 'linkedin',
         iconClass: 'linkedin',
-        URL: "https://www.linkedin.com/in/bumbeishvili"
-      }, {
-        name: 'google-plus',
-        iconClass: 'google-plus',
-        URL: "https://goo.gl/VEsrgM"
-      }, {
-        name: 'facebook',
-        iconClass: 'facebook',
-        URL: "https://www.facebook.com/Davit.Bumbeishvili"
-      }, {
-        name: 'twitter',
-        iconClass: 'twitter',
-        URL: "https://twitter.com/dbumbeishvili"
+        URL: "https://www.linkedin.com/in/marcoantoniorob/"
       }]
     };
   },
@@ -266,7 +233,7 @@ var Skills = React.createClass({
   displayName: 'Skills',
 
   render: function render() {
-    var arr = Array.apply(null, Array(15));
+    var arr = Array.apply(null, Array(2));
     return React.createElement(
       'div',
       { className: 'Skills force-skills', id: 'Skills' },
@@ -455,7 +422,7 @@ var Contact = React.createClass({
           this.props.socialChannels.map(function (ch) {
             return React.createElement(
               'div',
-              { className: 'col s2 m1 social-icons-wrapper' },
+              { className: 'col s1 social-icons-wrapper center-align' },
               ' ',
               React.createElement(
                 'a',
@@ -470,54 +437,8 @@ var Contact = React.createClass({
       'Companies tend to prefer cv\'s, over personal websites,so  ',
       React.createElement(
         'a',
-        { target: '_blank', href: 'https://bit.ly/david-me-resume' },
+        { target: '_blank', href: 'https://drive.google.com/file/d/172d7zo8iPTYutZr67R6oOyc94yW4ZwuS/view?usp=sharing' },
         ' I am putting my resume here '
-      ),
-      React.createElement('br', null),
-      React.createElement('br', null),
-      React.createElement('br', null),
-      React.createElement(
-        'div',
-        { className: 'contact-info' },
-        'Write me about anything:'
-      ),
-      React.createElement(
-        'b',
-        null,
-        'davit.bumbeishvili@gmail.com'
-      ),
-      React.createElement('br', null),
-      React.createElement(
-        'span',
-        { className: 'contact-info' },
-        'Talk me  about anything:'
-      ),
-      '  ',
-      React.createElement(
-        'b',
-        null,
-        React.createElement(
-          'span',
-          { className: 'contact-info' },
-          '(+995)\xA0598\xA061\xA052\xA061 '
-        )
-      ),
-      React.createElement('br', null),
-      React.createElement(
-        'span',
-        { className: 'contact-info' },
-        'I also have skype :'
-      ),
-      '  ',
-      React.createElement(
-        'span',
-        { style: { display: "inline-block" } },
-        React.createElement('i', { className: 'fa fa-skype' }),
-        React.createElement(
-          'b',
-          null,
-          ' davit.bumbeishvili'
-        )
       )
     );
   },
@@ -531,34 +452,8 @@ var Footer = React.createClass({
   displayName: 'Footer',
 
   render: function render() {
-    return React.createElement(
-      'div',
-      null,
-      React.createElement(
-        'div',
-        { className: 'row footer-container' },
-        React.createElement(
-          'div',
-          { className: 'col  m9' },
-          'Created with ',
-          React.createElement(
-            'span',
-            { style: { color: 'red' } },
-            '\u2665 '
-          ),
-          React.createElement('br', null),
-          ' \xA9 dato bumbeishvili'
-        ),
-        React.createElement(
-          'div',
-          { className: 'col  l1' },
-          '    ',
-          React.createElement('div', { className: 'fb-like', 'data-href': 'https://www.facebook.com/dato.apps/', 'data-width': '20', 'data-layout': 'standard', 'data-action': 'like', 'data-show-faces': 'false', 'data-share': 'false' })
-        )
-      )
-    );
+    return React.createElement('div',null)
   }
-
 });
 
 ReactDOM.render(React.createElement(Page, null), document.getElementById('content'));
@@ -814,7 +709,7 @@ function drawSkillsForce(data) {
   });
 }
 
-d3.json("https://raw.githubusercontent.com/bumbeishvili/bumbeishvili.github.io/master/assets/skills.json", function (data) {
+d3.json("https://raw.githubusercontent.com/MarcoRob/marcorob.github.io/Develop/skills.json", function (data) {
 
   drawSkillsForce(data);
 });
