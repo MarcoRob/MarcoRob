@@ -1,0 +1,773 @@
+var projectsJsonLink = "https://raw.githubusercontent.com/bumbeishvili/bumbeishvili.github.io/master/assets/projects.json";
+
+var Page = React.createClass({
+  getInitialState: function() {
+    return {
+      tabs: ['Me', 'Skills', 'Projects', 'Contact'],
+      filters: [{
+        name: "all",
+        checked: true
+      }, {
+        name: "react.js",
+        checked: false
+      }, {
+        name: "D3.js",
+        checked: false
+      }, {
+        name: "vanilla-js",
+        checked: false
+      }],
+      setOpacity: false,
+      projects: [],
+      filteredProjects: [],
+      socialChannels: [{
+        name: 'github',
+        iconClass: 'github',
+        URL: "https://github.com/bumbeishvili"
+      }, {
+        name: 'free code camp',
+        iconClass: 'fire',
+        URL: "https://freecodecamp.com/bumbeishvili"
+      }, {
+        name: 'codepen',
+        iconClass: 'codepen',
+        URL: "https://codepen.io/bumbeishvili/"
+      }, {
+        name: 'stack-overflow',
+        iconClass: 'stack-overflow',
+        URL: "http://stackoverflow.com/users/5369006/bumbeishvili"
+      }, {
+        name: 'linkedin',
+        iconClass: 'linkedin',
+        URL: "https://www.linkedin.com/in/bumbeishvili"
+      }, {
+        name: 'google-plus',
+        iconClass: 'google-plus',
+        URL: "https://goo.gl/VEsrgM"
+      }, {
+        name: 'facebook',
+        iconClass: 'facebook',
+        URL: "https://www.facebook.com/Davit.Bumbeishvili"
+      }, {
+        name: 'twitter',
+        iconClass: 'twitter',
+        URL: "https://twitter.com/dbumbeishvili"
+      }]
+    }
+  },
+  render: function() {
+    return (
+      <div className='page'> 
+        <Tabs tabs = {this.state.tabs} />
+        <div className="pages">
+                <Me    getHeader={this.getHeader}/>
+                <Skills  getHeader={this.getHeader}/>
+                <Projects getHeader={this.getHeader} projects={this.state.filteredProjects} filters={this.state.filters} handleFilterClick={this.handleFilterClick} setOpacity={this.state.setOpacity}/>
+                <Contact  getHeader={this.getHeader} socialChannels = {this.state.socialChannels}/>
+        </div>
+         <Footer/>
+      </div>)
+  },
+  handleFilterClick: function(clickedIndex) {
+    debugger;
+    var filts = this.state.filters;
+    filts[clickedIndex].checked = !(filts[clickedIndex].checked);
+
+    var optionNamedAll = filts.find(f => f.name == 'all');
+
+    if (filts[clickedIndex].name != 'all') {
+      optionNamedAll.checked = false;
+    } else {
+      filts.forEach(f => {
+        if (f.name != 'all') {
+          f.checked = false
+        }
+      });
+    }
+
+    var projects = this.state.projects;
+    var filtered = getFilteredProjects(projects, filts.filter(f => f.checked));
+
+    this.setState({
+      filters: filts,
+      filteredProjects: filtered,
+      setOpacity: true
+    });
+
+    function getFilteredProjects(projects, filters) {
+      projects.forEach(p => p.setOpacity = true)
+      if (filters.length == 0) return [];
+
+      var filteredProjects = [];
+      var OptionNamedAllIsNotChecked = !filters.find(f => f.name == 'all');
+      if (OptionNamedAllIsNotChecked) {
+        filters.forEach(f => {
+          projects.forEach(p => {
+            if (p.tags.indexOf(f.name) != -1 && !filteredProjects.find(fp => fp.title == p.title)) {
+              filteredProjects.push(p);
+            }
+          })
+        });
+        return filteredProjects;
+      }
+      return projects;
+    }
+  },
+  getHeader: function(tabName) {
+    return <div className="header-title" id={'header_'+tabName}>
+          <h2>{tabName}</h2>
+          <hr/>
+        </div>
+  },
+  componentDidMount: function() {
+    $.get(projectsJsonLink, p => {
+      var projects = JSON.parse(p)
+      this.setState({
+        projects: projects,
+        filteredProjects: projects
+      })
+    });
+  }
+
+});
+
+var Tabs = React.createClass({
+
+  render: function() {
+    var tabs = this.props.tabs;
+    return (<div className=" tab row">
+    <div className="col s12">
+      <ul className="tabs">
+        {tabs.map((t,i)=> {
+          return <li key={i} className="tab col s3"><a href={'#tab'+t} onClick={this.scrollTo.bind(this,t)}>{t}</a></li>;
+        })}
+      </ul>
+    </div>
+  </div>);
+  },
+  scrollTo: function(dest) {
+    $('html, body').animate({
+      scrollTop: $("#" + dest).offset().top - 65
+    }, 1000);
+  },
+  componentDidMount: function() {
+    function height(selector) {
+      return $(selector).offset().top - window.innerHeight / 2;
+    }
+
+    function moveToTab(tabName) {
+      $('ul.tabs').tabs('select_tab', 'tab' + tabName);
+    }
+
+    var previousTab;
+    var tabs = this.props.tabs;
+
+    $(window).scroll(() => {
+      var currentHeight = $(document).scrollTop();
+      var tabContentHeights = tabs.map(t => height('#' + t));
+      for (var i = tabs.length - 1; i >= 0; i--) {
+        if (currentHeight > tabContentHeights[i]) {
+          if (previousTab != tabs[i]) {
+            moveToTab(tabs[i]);
+            previousTab = tabs[i];
+          }
+          break;
+        }
+      }
+
+    });
+  }
+});
+
+var Me = React.createClass({
+  render: function() {
+    var arr = Array.apply(null, Array(15))
+    return (<div className="me" id="Me">
+               {this.props.getHeader("Me")}
+                <div className="row">
+                         <div className="col m4 s11 myPhoto">
+                          <img src="https://raw.githubusercontent.com/bumbeishvili/Assets/master/Projects/Portfolio/p2.jpg" alt="" className="circle responsive-img"/> 
+                        </div>
+                </div>
+                <div className="row title-container">
+                   <div className="title" >
+                     <h4>Dato Bumbeishvili</h4>
+                      <hr/>
+                    <h4>Full Stack Developer</h4>
+                  </div>
+                </div>
+
+        </div>);
+  }
+});
+
+var Skills = React.createClass({
+  render: function() {
+    var arr = Array.apply(null, Array(15))
+    return (<div className="Skills force-skills" id="Skills">
+               {this.props.getHeader("Skills")}
+        </div>);
+  }
+});
+
+var Projects = React.createClass({
+  handleFilterClick: function(clickedIndex) {
+    debugger;
+    this.props.handleFilterClick(clickedIndex);
+  },
+  render: function() {
+    var cardStyle = {};
+    var filtBtnStyle={};
+    
+    if (this.props.setOpacity) {
+      cardStyle.opacity = 1;
+    }
+    if(isMobileScreen()){
+      filtBtnStyle.minWidth="100%"
+    }
+    return (
+      <div className="row" id="Projects">
+       {this.props.getHeader("Projects")}
+        <div className="projects-filter">
+          {this.props.filters.map((f,i)=>
+                         <button style={filtBtnStyle} onClick={this.handleFilterClick.bind(this, i)} className={"btn waves-effect waves-light cyan"+ (f.checked?"":" lighten-4")}>{f.name} &nbsp;
+    <i className={"fa  fa-"+(f.checked?"check-circle":"circle")}></i>
+  </button>         
+                                 )}
+           
+          
+    
+        </div>
+
+      <div className="projects row" >
+        <ul id="ProjectsList">
+        {this.props.projects.map( (x, i) =>{ 
+                var item;
+                if(i%4==0){
+                  item= 
+                    <div>
+                      <div className="row" ></div>
+                      <li style={cardStyle}>
+                     <Card project={x} index={i}/>
+                  </li>
+
+                      </div>
+                }else{
+                   item = <li style={cardStyle}>
+                     <Card  project={x} index={i} />
+                  </li>
+                }
+            
+            return item;
+           
+          })}
+          
+        </ul>
+
+        </div>
+       </div>);
+  },
+
+  componentDidMount: function() {
+    var corrected = false;
+
+    function correctCardDescHeights() {
+      var cardContents = $('.card .card-content ');
+      var maxHeights = [];
+      var gridColumnCount = 4;
+
+      cardContents.each(function(index) {
+        var heightIndex = Math.floor(index / gridColumnCount);
+
+        if (!($(this).height() < maxHeights[heightIndex])) {
+          maxHeights[heightIndex] = $(this).height();
+        }
+      });
+
+      cardContents.each(function(index) {
+        var heightIndex = Math.floor(index / gridColumnCount);
+        $(this).css('min-height', maxHeights[heightIndex] + 35); //padding
+
+      });
+
+      corrected = true;
+    }
+    var options = [{
+      selector: '#ProjectsList',
+      offset: 100,
+      callback: function(el) {
+        if (!corrected) correctCardDescHeights();
+        Materialize.showStaggeredList($(el));
+
+      }
+    }];
+    Materialize.scrollFire(options);
+  }
+});
+
+var Card = React.createClass({
+  render: function() {
+    var project = this.props.project;
+
+    return (
+      <div className="col s12 l3 m6"  >
+          <div className="card  ">
+            <div className="card-image">
+              <img src={project.imageURL}/>
+            </div>
+            <div className="card-content">
+                <span className="card-title">{this.props.index+1+'. '} {project.title} </span>
+              
+              <br/>
+              {project.tags.map(t=>  
+                                <a className="chip" target="_blank" href={"https://www.google.ge/#q="+t}>
+                                   {t}
+                                </a>)
+              }
+
+            
+              <p>{project.description}</p>
+            </div>
+            <div className="card-action">
+               {project.links.map(l=>  <a href={l.HREF} target="_blank">{l.name}</a>)}
+            </div>
+          </div>
+      </div>
+    )
+  }
+});
+
+var Contact = React.createClass({
+  render: function() {
+    return (<div className="Contact" id="Contact">
+                    {this.props.getHeader("Contact")}
+         <div className="row icon-wrappers-container">
+           <div className="centered-icons">
+           {
+             this.props.socialChannels.map(
+               ch=>
+                          <div className="col s2 m1 social-icons-wrapper" > <a className={ch.iconClass} data-name={ch.name}
+                 href={ch.URL} target="_blank"><i className={'fa fa-'+ch.iconClass}></i></a></div>               
+             )
+           }
+           </div>
+        </div>
+       
+       Companies tend to prefer cv's, over personal websites,so  <a target="_blank" href="https://bit.ly/david-me-resume"> I am putting my resume here </a> 
+        <br/>
+        <br/> 
+        <br/>
+        <div className="contact-info">Write me about anything:</div><b>davit.bumbeishvili@gmail.com</b>
+        <br/>
+      
+        <span className="contact-info">Talk me  about anything:</span>  <b><span  className="contact-info">(+995)&nbsp;598&nbsp;61&nbsp;52&nbsp;61 </span></b> 
+         <br/>
+      
+        <span className="contact-info">I also have skype :</span>  <span style={{display:"inline-block"}}><i className="fa fa-skype"></i><b> davit.bumbeishvili</b></span>
+       
+        </div>);
+  },
+
+  componentDidMount: function() {
+    $('.parallax').parallax();
+  }
+});
+
+var Footer = React.createClass({
+  render: function() {
+    return (<div>
+        <div className="row footer-container">
+                   <div className="col  m9" > 
+                     Created with <span style={{color:'red'}}>
+                     ♥ </span><br/> © dato bumbeishvili
+                  </div>
+              <div className="col  l1">    <div className="fb-like" data-href="https://www.facebook.com/dato.apps/" data-width="20" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div></div>
+                </div>
+       </div>)
+  }
+
+});
+
+ReactDOM.render(
+  <Page />, document.getElementById('content')
+);
+
+function drawSkillsForce(data) {
+  var container = '.force-skills';
+  var width = window.innerWidth - 20;
+  var height = window.innerHeight - 140;
+  var isMobile = isMobileScreen();
+  var rectWidth = 55;
+  var rectHeight = 20;
+  var maxRadius = 30;
+  var catFontSize = 10;
+  var skillFontSize=11;
+  var techTextDisplayProgress=101;
+  var linkDistance = 40
+  var charge = -150
+  var gravity = 0.1;
+  var borderRadius = 4;
+
+  
+  var skillConditions = {
+    RapidlyImproving: {
+      key: "RapidlyImproving",
+      name: 'Improving Rapidly',
+      color: "#FDD525"
+    },
+    Improving: {
+      key: "Improving",
+      name: 'Improving ',
+      color: "#0CC8F4"
+    },
+    Planned: {
+      key: "Planned",
+      name: 'Planned to learn ',
+      color: "#E1E2A9"
+    },
+    Abandoned: {
+      key: "Abandoned",
+      name: 'Abandoned',
+      color: "#ed6fc3"
+    },
+    init: function() {
+      this.array = [this.RapidlyImproving, this.Improving, this.Planned, this.Abandoned]
+      return this;
+    }
+  }.init();
+
+  if (!isMobile) {
+       borderRadius = 8;
+    techTextDisplayProgress=50;
+    rectWidth = 110;
+    rectHeight = 40;
+    maxRadius = 60;
+    catFontSize = 20;
+    linkDistance = 80
+    charge = -300
+    gravity = 0.1
+  }
+
+  var svg = d3.select(container)
+    .append('svg')
+    .attr("viewBox", "0 0 " +width + " " +height)
+    .attr("preserveAspectRatio", "xMidYMid meet")
+
+  var force = d3.layout.force();
+
+  force.size([width, height])
+  force.charge(charge);
+  force.linkDistance(linkDistance);
+  force.links(data.links);
+  force.nodes(data.nodes);
+  force.gravity(gravity);
+
+  var radiusScale = d3.scale.linear().domain([0, 100]).range([10, maxRadius]);
+  var distanceScale = d3.scale.linear().domain([0, 100]).range([linkDistance, 80]);
+
+  var categoryNodesData = data.nodes.filter(function(v) {
+    return v.type == 'Category';
+  })
+
+  var technologyNodesData = data.nodes.filter(function(v) {
+    return v.type == 'Technology';
+  })
+
+  technologyNodesData.forEach(function(v) {
+    v.skillCondition = skillConditions[v.status];
+    v.experienceText = getReadableExperience(v.experience);
+  });
+
+
+  function getReadableExperience(e) {
+    switch (e.type) {
+      case "static":
+        return moment.duration(e.previous).humanize();
+      case "ongoing":
+        {
+          var currentDate = new Date();
+          var milliseconds = currentDate.getTime();
+          var result =  moment.duration( milliseconds- e.start + e.previous).humanize();
+          return result;
+        }
+      default:
+        console.log( 'something wrong in getReadableExperience');
+    }
+  }
+  //############################## LEGEND  ########################################
+
+  skillConditions.array.forEach(function(v, i) {
+    svg.append('rect')
+      .attr('y', 10 + i * 40)
+      .attr('x', 15)
+      .attr('width', 30)
+      .attr('height', 30)
+      .attr('stroke', '#ccd9ff')
+      .attr('stroke-width', '5px')
+      .attr('fill', v.color)
+
+    svg.append('text')
+      .text(v.name)
+      .style('font-size', catFontSize)
+      .attr('y', 24 + i * 40)
+      .attr('x', 55)
+      .attr("dy", ".35em")
+      .style('cursor', 'context-menu')
+      .style('font-family', 'Roboto')
+      .attr('fill', '#42a5f5')
+      .attr('height', '100px')
+  });
+
+  //########################### drawing
+
+  var links = svg.selectAll('.link')
+    .data(data.links)
+    .enter()
+    .append('line')
+    .attr('class', 'link ')
+    .attr('stroke', 'gray')
+
+  var grad = svg.selectAll('.grads')
+    .data(technologyNodesData)
+    .enter()
+    .append("defs")
+    .append("linearGradient")
+    .attr("id", function(d, i) {
+      return "grad" + i;
+    })
+    .attr("x1", "0%")
+    .attr("x2", "0%")
+    .attr("y1", function(d) {
+      return (100 - d.progressPercent) + '%';
+    })
+    .attr("y2", "0%");
+  grad.append("stop")
+    .attr("offset", "3%")
+    .attr("stop-color", function(d) {
+      return d.skillCondition.color;
+    })
+
+  grad.append("stop")
+    .attr("offset", "0%")
+    .style("stop-color", "white");
+//skillFontSize
+  var techGroup = svg.selectAll('.tech-group')
+    .data(technologyNodesData)
+    .enter()
+  .append('g')
+  .attr('class','tech-group');
+  
+  
+    var technologyNodes =techGroup
+    .append('circle')
+    .attr('class', 'techNode Node')
+    .attr('r', function(d) {
+      return radiusScale(d.progressPercent);
+    })
+    .style('cursor', 'pointer')
+    .attr('stroke', '#ccd9ff')
+    .attr('stroke-width', '5px')
+
+  .attr("fill", function(d, i) {
+      return "url(#grad" + i + ")";
+    })
+    .call(force.drag)
+    
+    var techText = techGroup.append('text')
+      .style('font-size', skillFontSize)
+      .style('text-anchor','middle')
+    .style('font-family', 'Roboto')
+    .attr("dy", ".35em")
+    .style('cursor', 'pointer')
+    .style('font-weight', 'bold')
+    .attr('fill', 'white')
+    .attr("transform","translate(40,10)")
+    .call(force.drag)
+    .text(function(d){
+      if(d.progressPercent>=techTextDisplayProgress) return d.shortName;
+    });
+
+  var categoryNodeGroups = svg.
+  selectAll('.catNode')
+    .data(categoryNodesData)
+    .enter()
+    .append('g')
+    .attr('class', 'catNode');
+
+  var categoryNodes = categoryNodeGroups.append('rect')
+    .style('cursor', 'pointer')
+    .attr('stroke', '#42a5f5')
+    .attr('stroke-width', '3px')
+    .attr('fill', 'white')
+  .attr('rx',borderRadius)
+    .attr('width', rectWidth + 'px')
+    .attr('height', rectHeight + 'px')
+    .call(force.drag);
+
+  var categoryTexts = categoryNodeGroups
+    .append("text")
+    .attr('class', 'catText ')
+
+    .style('font-size', catFontSize)
+    .style('font-family', 'Roboto')
+    .attr("dy", ".35em")
+    .style('cursor', 'pointer')
+    .style('font-weight', 'bold')
+    .attr('fill', '#42a5f5')
+    .call(force.drag)
+    .text(function(d) {
+      return d.name;
+    });
+
+  force.start();
+
+  //##################################  TOOLTIP  ##################################################
+  function progress(params) {
+    return '<div >'+
+                  '<table>'+
+              '<tr><td>Experience</td><th>'+params.experience+'</th></tr>'+
+               '<tr><td>Status</td><th>'+params.skillStatus+' </th></tr>'+
+              '<tr><td>Knowledge</td><th>'+params.absoluteValue+' %</th></tr>'+
+            '</table>'+
+      '<div class="progress">' +
+
+      '<div class="determinate ' + params.class + '"  style="width:' + params.relativeValue + '%">' +
+
+      '</div>' +
+      '</div>' +
+      '</div>';
+  }
+
+  var tooltip = d3.select('body')
+    .append('div')
+    .attr('class', 'customTooltip');
+  //dwada
+  tooltip.append('div')
+    .attr('class', 'skills-label');
+  tooltip.append('div')
+    .attr('class', 'skills-progress');
+  tooltip.append('div')
+    .attr('class', 'skills-story').style('text-align','left').style('text-indent',"20px");
+  
+  function tooltipHoverHandler(d) {
+    
+    var title = d.name;
+    tooltip.select('.skills-label').html("<b>" + title + "</b>");
+    tooltip.select('.skills-story').html(d.experience.story);
+    
+    tooltip.select('.skills-progress').html(progress({
+      progressLabel: d.name,
+      relativeValue: d.progressPercent,
+      absoluteValue: d.progressPercent,
+      class: d.skillCondition.key,
+      experience:d.experienceText,
+      skillStatus:d.skillCondition.name
+    }));
+
+    tooltip.selectAll('.progress')
+      .style('margin-bottom', '5px');
+
+    tooltip.selectAll('h6')
+      .style('margin-bottom', '5px').style('text-align', 'left');
+
+    tooltip.transition()
+      .duration(200).style("opacity", "1").style('display', 'block');
+    d3.select(this)
+      .select('circle')
+      .attr('stroke-width', 10)
+      .attr("stroke", "#ccd9ff");
+  }
+
+  function tooltipOutHandler() {
+    tooltip.transition()
+      .duration(200)
+      .style('opacity', '0').style('display', 'none');
+    d3.select(this).select('circle').attr('stroke-width', 5);
+  }
+
+  techGroup.on('mouseover', tooltipHoverHandler);
+
+  techGroup.on('mouseout', tooltipOutHandler);
+
+  techGroup.on("mousemove", function(d) {
+    tooltip.style('top', (d3.event.pageY - 130) + 'px')
+      .style('left', (d3.event.pageX + 20) + 'px');
+  });
+
+  force.on('tick', function() {
+
+    technologyNodes
+      .attr('cx', function(d) {
+        return d.x = Math.max(radiusScale(d.progressPercent), Math.min(width - radiusScale(d.progressPercent), d.x));
+      }).attr('cy', function(d) {
+        return d.y = Math.max(radiusScale(d.progressPercent), Math.min(height - radiusScale(d.progressPercent), d.y));
+      })
+
+    categoryNodes.attr('x', function(d) {
+      if (d.x - rectWidth / 2 < 0) return 0;
+      if (d.x + rectWidth / 2 > width) return width - rectWidth;
+      return d.x - rectWidth / 2;
+    }).attr('y', function(d) {
+      //return d.y - rectHeight / 2;
+
+      if (d.y - rectHeight / 2 < 0) return 0;
+      if (d.y + rectHeight / 2 > height) return height - rectHeight;
+      return d.y - rectHeight / 2;
+    })
+
+    categoryTexts.attr('x', function(d) {
+      if (d.x - rectWidth / 2.4 < 0) return 0;
+      if (d.x + rectWidth / 2.6 > width) return width - rectWidth;
+      return d.x - rectWidth / 2.4;
+    }).attr('y', function(d) {
+      // return d.y;
+      if (d.y - rectHeight / 2 < 0) return rectHeight / 2;
+      if (d.y + rectHeight / 2 > height) return height - rectHeight / 2;
+      return d.y
+    })
+    
+    
+    techText.attr('x', function(d) {
+      if (d.x - rectWidth / 2.4 < 0) return 0;
+      if (d.x + rectWidth / 2.6 > width) return width - rectWidth;
+      return d.x - rectWidth / 2.4;
+    }).attr('y', function(d) {
+      // return d.y;
+      if (d.y - rectHeight / 2 < 0) return rectHeight / 2;
+      if (d.y + rectHeight / 2 > height) return height - rectHeight / 2;
+      return d.y
+    })
+
+    links.attr('x1', function(d) {
+        if (d.source.x < 0) return 0;
+        if (d.source.x > width) return width;
+        return d.source.x;
+      })
+      .attr('y1', function(d) {
+        if (d.source.y < 0) return 0;
+        if (d.source.y > height) return height;
+        return d.source.y;
+      })
+      .attr('x2', function(d) {
+        if (d.target.x < 0) return 0;
+        if (d.target.x > width) return width;
+        return d.target.x;
+      })
+      .attr('y2', function(d) {
+        if (d.target.y < 0) return 0;
+        if (d.target.y > height) return height;
+        return d.target.y;
+      })
+  });
+
+}
+
+d3.json("https://raw.githubusercontent.com/bumbeishvili/bumbeishvili.github.io/master/assets/skills.json", function(data) {
+
+  drawSkillsForce(data);
+
+});
+
+function isMobileScreen(){
+  return window.innerWidth < 420;
+}
