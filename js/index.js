@@ -1,4 +1,4 @@
-var projectsJsonLink = "https://raw.githubusercontent.com/bumbeishvili/bumbeishvili.github.io/master/assets/projects.json";
+var projectsJsonLink = "https://raw.githubusercontent.com/MarcoRob/marcorob.github.io/Develop/projects.json";
 
 var Page = React.createClass({
   displayName: 'Page',

@@ -52,7 +52,7 @@
     ]
   },
   {
-    "title": "Habitak - Task Manager System",
+    "title": "Task Manager System",
     "imageURL": "https://raw.githubusercontent.com/bumbeishvili/Assets/master/Projects/Portfolio/githubTrends.png",
     "description": "Microservices based architecture, made for Architecture Software class. Multiple microservices conected to one client-side",
     "tags": [
