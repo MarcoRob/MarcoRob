@@ -53,7 +53,7 @@
   },
   {
     "title": "Task Manager System",
-    "imageURL": "https://raw.githubusercontent.com/bumbeishvili/Assets/master/Projects/Portfolio/githubTrends.png",
+    "imageURL": "https://raw.githubusercontent.com/MarcoRob/marcorob.github.io/Develop/img/habitak-interface.PNG",
     "description": "Microservices based architecture, made for Architecture Software class. Multiple microservices conected to one client-side",
     "tags": [
       "node.js",
