@@ -17,7 +17,7 @@
   },
   {
     "title": "Decision Maker",
-    "imageURL": "https://raw.githubusercontent.com/bumbeishvili/Assets/master/Projects/Portfolio/empChart.png",
+    "imageURL": "https://raw.githubusercontent.com/MarcoRob/marcorob.github.io/Develop/img/decisionmaker-interface.png",
     "description": "Get a decision based on a Social Network data, selected a category and analyze using Page Rank algorithm",
     "tags": [
       "reactjs",
@@ -34,7 +34,7 @@
   },
   {
     "title": "Skalia",
-    "imageURL": "https://scontent.fgdl5-1.fna.fbcdn.net/v/t35.18174-12/24474604_1736565653044359_1248193389_o.png?_nc_cat=0&oh=10e45185aaa0eb545e09dbd51c9bfa43&oe=5AEC15E1",
+    "imageURL": "https://raw.githubusercontent.com/MarcoRob/marcorob.github.io/Develop/img/skalia-dashboard.png",
     "description": " Semestre i project, web game app that helps children to imporve their maths learning. ",
     "tags": [
       "vuejs",
