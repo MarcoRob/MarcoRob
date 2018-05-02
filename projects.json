@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Projects",
+    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2000px-Octicons-mark-github.svg.png",
+    "description": "All my projects worked during my career are here, take a look!",
+    "tags": [
+      "js",
+      "java",
+      "my projects"
+    ],
+    "links": [
+      {
+        "name": "source",
+        "HREF": "https://github.com/marcorob"
+      }
+    ]
+  },
+  {
+    "title": "Decision Maker",
+    "imageURL": "https://raw.githubusercontent.com/bumbeishvili/Assets/master/Projects/Portfolio/empChart.png",
+    "description": "Get a decision based on a Social Network data, selected a category and analyze using Page Rank algorithm",
+    "tags": [
+      "reactjs",
+      "mongodb",
+      "nodejs",
+      "expressjs"
+    ],
+    "links": [
+      {
+        "name": "source",
+        "HREF": "https://github.com/MarcoRob/DecisionMaker-on-Social-Network-Data"
+      }
+    ]
+  },
+  {
+    "title": "Skalia",
+    "imageURL": "https://raw.githubusercontent.com/bumbeishvili/Assets/master/Projects/Portfolio/map3dbar.png",
+    "description": " Semestre i project, web game app that helps children to imporve their maths learning. ",
+    "tags": [
+      "vuejs",
+      "python",
+      "mongodb",
+      "express.js",
+      "node.js",
+      "Unity Web GL"
+    ],
+    "links": [
+      {
+        "name": "Private",
+        "HREF": "#"
+      }
+    ]
+  },
+  {
+    "title": "Habitak - Task Manager System",
+    "imageURL": "https://raw.githubusercontent.com/bumbeishvili/Assets/master/Projects/Portfolio/githubTrends.png",
+    "description": "Microservices based architecture, made for Architecture Software class. Multiple microservices conected to one client-side",
+    "tags": [
+      "node.js",
+      "mongodb",
+      "typescript",
+      "java",
+      "go"
+    ],
+    "links": [
+      {
+        "name": "Repo",
+        "HREF": "https://github.com/MarcoRob/habitak-client"
+      }
+    ]
+  }
+]

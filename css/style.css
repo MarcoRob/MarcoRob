@@ -1,15 +1,247 @@
-.tabs .indicator{
-    background-color:#00b0ff;/*your color*/
+.chip {
+  display: inline-block;
+  height: auto;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 23px;
+  padding: 0 5px;
+  border-radius: 3px;
+  background-color: #e4e4e4;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  transition: all .15s ease-in-out;
 }
 
-.tabs .tab a.active {
-color:#00b0ff;
+.chip:hover {
+  background-color: #42a5f5;
+  color: white;
 }
-  
-.tabs .tab a:hover {
-color:#00b0ff;
+
+.tab {
+  position: relative;
+  right: 0;
+  left: 0;
+  z-index: 1030;
 }
-  
-.tabs .tab a {
-color: #00b0ff;
+.tab .tabs {
+  position: fixed;
+  left: 0;
+}
+.tab .tabs a {
+  color: #42a5f5 !important;
+}
+.tab .tabs a:hover {
+  color: #bbdefb !important;
+}
+.tab .tabs .indicator {
+  background-color: #64b5f6 !important;
+}
+
+.pages {
+  margin-top: 65px;
+}
+.pages .header-title {
+  color: #42a5f5;
+  text-align: center;
+  margin-top: 80px;
+}
+.pages .header-title hr {
+  max-width: 220px;
+  height: 1px;
+  border: 0;
+  border-top: 3px solid #42a5f5;
+  padding: 0;
+}
+.pages .header-title:not(#header_Projects) h2 {
+  margin-bottom: 0px !important;
+}
+.pages .me hr {
+  max-width: 220px;
+  height: 1px;
+  border: 0;
+  border-top: 3px solid #42a5f5;
+  padding: 0;
+}
+.pages .me .title-container {
+  background-color: #90caf9;
+  color: white;
+  text-align: center;
+}
+.pages .me .title-container hr {
+  max-width: 220px;
+  height: 1px;
+  border: 0;
+  border-top: 3px solid white;
+  padding: 0;
+}
+.pages .me .title-container h4 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.pages .me .myPhoto {
+  display: block;
+  margin: 60px auto;
+  float: none;
+}
+.pages .me .myPhoto img {
+  display: block;
+  margin: 0 auto;
+}
+.pages #Projects .projects-filter {
+  margin: 20px;
+}
+.pages #Projects .projects-filter button {
+  min-width: 180px;
+  text-align: left !important;
+}
+.pages #Projects .projects #ProjectsList {
+  text-align: center;
+}
+.pages #Projects .projects #ProjectsList li {
+  display: inline;
+  text-align: start;
+  opacity: 0;
+}
+.pages #Projects .projects #ProjectsList li .card {
+  margin: 10px;
+}
+.pages .Contact {
+  margin: 40px;
+}
+.pages .Contact .icon-wrappers-container {
+  overflow: hidden;
+  margin-left: 10%;
+}
+.pages .Contact .icon-wrappers-container .social-icons-wrapper {
+  margin: 15px;
+}
+.pages .Contact .icon-wrappers-container:hover {
+  overflow: visible;
+}
+.pages .Contact .icon-wrappers-container a {
+  font-size: 25px;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  display: block;
+  margin: 20px calc(50% - 21px);
+  white-space: nowrap;
+  padding: 10px;
+  padding-top: 9px;
+  padding-left: 14px;
+  box-sizing: border-box;
+  color: white;
+  transition: all 0.1s cubic-bezier(0.64, 0.09, 0.08, 1);
+  font-family: Roboto, sans-serif;
+  text-decoration: none;
+  box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.2);
+}
+.pages .Contact .icon-wrappers-container a i {
+  margin-right: 20px;
+  transition: margin-right 0.1s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+.pages .Contact .icon-wrappers-container a:hover {
+  width: 160px;
+  z-index: 1000;
+  transform: translateX(-50px);
+}
+.pages .Contact .icon-wrappers-container a:hover i {
+  margin-right: 10px;
+}
+.pages .Contact .icon-wrappers-container a:hover:after {
+  content: attr(data-name);
+}
+.pages .Contact a.linkedin {
+  background: #4875B4;
+}
+.pages .Contact a.twitter {
+  background: #03A9F4;
+}
+.pages .Contact a.stack-overflow {
+  background: #fe7a15;
+}
+.pages .Contact a.stack-overflow:hover {
+  width: 220px;
+}
+.pages .Contact a.facebook {
+  background: #3B5998;
+  padding-left: 18px;
+}
+.pages .Contact a.github {
+  background: #333;
+}
+.pages .Contact a.codepen {
+  background: #000;
+  padding-left: 12px;
+}
+.pages .Contact a.google-plus {
+  background: #C63D2D;
+}
+.pages .Contact a.google-plus:hover {
+  width: 200px;
+}
+.pages .Contact a.fire {
+  background: green;
+}
+.pages .Contact a.fire:hover {
+  width: 250px;
+}
+.pages .Contact .contact-info {
+  min-width: 180px;
+  display: inline-block;
+}
+
+.footer-container {
+  background-color: #90caf9;
+  color: white;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.customTooltip {
+  background: white;
+  /* NEW */
+  box-shadow: 0 0 5px #999999;
+  /* NEW */
+  color: #333;
+  /* NEW */
+  opacity: 0;
+  /* NEW */
+  display: none;
+  /* NEW */
+  font-size: 12px;
+  /* NEW */
+  left: 130px;
+  /* NEW */
+  padding: 10px;
+  /* NEW */
+  position: absolute;
+  /* NEW */
+  text-align: center;
+  /* NEW */
+  top: 95px;
+  /* NEW */
+  width: 200px;
+  /* NEW */
+  z-index: 10;
+}
+.customTooltip .RapidlyImproving {
+  background-color: #FDD525 !important;
+}
+.customTooltip .Improving {
+  background-color: #0CC8F4 !important;
+}
+.customTooltip .Planned {
+  background-color: #E1E2A9 !important;
+}
+.customTooltip .Abandoned {
+  background-color: #ed6fc3 !important;
+}
+.customTooltip table {
+  width: 100% !important;
+}
+.customTooltip table td, .customTooltip table th {
+  padding: 0px 0px 0px 0px !important;
 }
