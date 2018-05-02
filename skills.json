@@ -112,7 +112,7 @@
       "experience": {
         "type": "static",
         "start": 1471717727934,
-        "previous": 2678400000,
+        "previous": 31536000000,
         "story": "I am familiar with syntax, have written for 2 years for local and mobile app for own use "
       },
       "progressPercent": 70
